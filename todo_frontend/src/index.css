@@ -1,4 +1,4 @@
-:root {
+/* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -65,4 +65,95 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+} */
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden; 
+  font-family: 'Times New Roman', Times, serif;
+  /* background: linear-gradient(antiquewhite, thistle, rebeccapurple); */
+  background: rgb(170, 170, 170);
+}
+
+.taskContainer {
+  border: 1px solid rebeccapurple;
+  margin: 4rem auto;
+  width: 40rem;
+  height: 100%;
+  padding: 2rem;
+}
+
+.taskTitle {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  letter-spacing: 1;
+}
+
+.taskInput {
+  width: 30rem;
+  height: 2.5rem;
+  border-top-left-radius: 0.4rem;
+  border-bottom-left-radius: 0.4rem;
+  padding: 1.1rem 0.7rem;
+  font-size: 1rem;
+  outline: none;
+  border: 1px solid rebeccapurple;
+  margin-bottom: 1rem;
+}
+
+.addBtn {
+  padding: 0.6rem;
+  font-size: 1rem;
+  border-top-right-radius: 0.4rem;
+  border-bottom-right-radius: 0.4rem;
+  border: 1px solid rebeccapurple;
+  outline: none;
+  cursor: pointer;
+}
+
+.addBtn:hover {
+  background: rgb(184, 141, 226);
+  color: white;
+  padding: 0.5rem;
+  border: 2px solid rebeccapurple;
+}
+
+.taskOutput {
+  margin-top: 1rem;
+}
+
+.taskBox {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.oneTask {
+  border: 2px solid olivedrab;
+  font-size: 1.1rem;
+  padding: 0.5rem 0.7rem;
+  margin-top: 0.8rem;
+  /* width: 30rem; */
+  border-radius: 0.4rem;
+  position: relative;
+}
+
+.buttons {
+  position: absolute; 
+  left: 29rem;
+  top: 0.5rem;
+}
+
+.taskBtn {
+  font-size: 0.7rem;
+  padding: 0.2rem;
+  margin-left: 0.4rem;
 }

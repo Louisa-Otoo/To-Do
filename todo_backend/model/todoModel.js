@@ -1,17 +1,9 @@
-import {Schema, model} from "mongoose"
+import { Schema, model } from "mongoose";
 
-const todoSchema = new Schema({
-    title: {
+const todoSchema = new Schema ({
+    action: {
         type: String,
         required: true
-    },
-    description: {
-        type: String,
-        required: true
-    },
-    completed: {
-        type: Boolean,
-        default: false
     }
 })
 

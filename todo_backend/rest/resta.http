@@ -1,0 +1,34 @@
+###
+POST http://localhost:4000/api/tasks
+'Content-Type': 'application/json'
+
+{
+    "description": "first task"
+}
+
+###
+POST http://localhost:4000/api/tasks
+'Content-Type': 'application/json'
+
+{
+    "action": "this is a new one",
+    "completed": "false"
+}
+
+### 
+POST http://localhost:4000/api/tasks
+'Content-Type': 'application/json'
+
+{
+    "action": "lets test now",
+    "completed": "false"
+}
+
+###
+POST http://localhost:4000/api/tasks
+'Content-Type': 'application/json'
+
+{
+    "action": "sweep hallway",
+    "completed": "false"
+}

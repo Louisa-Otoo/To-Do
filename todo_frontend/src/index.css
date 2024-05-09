@@ -146,6 +146,10 @@ body {
   position: relative;
 }
 
+.oneTask label {
+  margin-left: 0.5rem;
+}
+
 .buttons {
   position: absolute; 
   left: 29rem;

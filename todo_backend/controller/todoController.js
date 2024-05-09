@@ -1,83 +1,25 @@
-import todo from "../model/todoModel.js";
 import asyncHandler from "express-async-handler";
 import mongoose from "mongoose";
+import todo from "../model/todoModel.js";
 
 export const addTask = asyncHandler( async(req, res) => {
-    const { title, description, completed } = req.body;
+    const { action } = req.body;
 
-    if (!title) {
-        res.status(400).json({ error: 'title is required' })
-    }
+    console.log('Request body:', req.body)
 
-    if (!description) {
-        res.status(400).json({ error: 'description is required' })
+    if (!action) {
+        res.status(400).json({ error: 'action is a required field'})
     }
 
     const newTask = await todo.create({
-        title, 
-        description,
-        completed
+        action
     })
 
     if (newTask) {
         res.status(200).send(newTask)
-
-    } else {
-        res.status(401)
-        throw new Error('your new task was not created')
-    }
-    
-})
-
-
-export const allTasks = asyncHandler( async(req,res) => {
-    const tasks = await todo.find();
-
-    if (!tasks || tasks.length === 0) {
-        res.status(400).json({ error: 'your tasks were not found' })
-    
-    } else {
-        res.status(200).send(tasks)
-    }
-})
-
-
-export const updateTask = asyncHandler( async(req, res) => {
-    const { id } = req.params;
-    const { title, description, completed } = req.body;
-
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-        res.status(400).json({ error: 'Invalid ID' });
-    }
-
-    const editedTask = req.body;
-    const updatedTask = await todo.findByIdAndUpdate(
-        { _id: id },
-        editedTask,
-    )
-
-    if (updatedTask) {
-        res.status(200).send(updatedTask)
-    } else {
-        res.status(404)
-        throw new Error('task not found')
-    }
-
-})
-
-
-export const deleteTask = asyncHandler( async(req, res) => {
-    const { id } = req.params;
-
-    const removedTask = await todo.findByIdAndDelete(
-        { _id: id }
-    )
-
-    if (removedTask) {
-        res.status(200).send(removedTask)
-
     } else {
         res.status(400)
-        throw new Error('task could not be deleted')
+        throw new Error('task was not created')        
     }
+
 })
